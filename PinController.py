@@ -1,6 +1,9 @@
 #!/usr/bin/python
 
 import RPi.GPIO as GPIO
+import os
+
+from array import array
 
 class PinController:
 
@@ -9,11 +12,11 @@ class PinController:
 	def __init__(self):
 		
 		GPIO.setmode(GPIO.BCM)
-		
-		for x in relays:
+
+		for x in self.relays:
 			GPIO.setup(x, GPIO.OUT)
 			
-	def controlPin(pin, setting):
+	def controlPin(self, pin, setting):
 		
 		print str(pin) + " set to " + str(setting);
 		GPIO.output(pin, setting);
