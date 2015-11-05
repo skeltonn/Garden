@@ -15,8 +15,9 @@ class PinController:
 
 		for x in self.relays:
 			GPIO.setup(x, GPIO.OUT)
+			GPIO.output(x, True)
 			
 	def controlPin(self, pin, setting):
 		
-		print str(pin) + " set to " + str(setting);
-		GPIO.output(pin, setting);
+		print str(pin) + " set to " + str(setting)
+		GPIO.output(pin, setting)

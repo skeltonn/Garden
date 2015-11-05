@@ -8,11 +8,11 @@ import RPi.GPIO as GPIO
 
 pinController = PinController.PinController()
 
-pinController.controlPin(20, True)
+for x in pinController.relays:
+	pinController.controlPin(x, False)
+	time.sleep(1)
+	pinController.controlPin(x, True)
 
-time.sleep(10000)
-
-pinController.controlPin(27, False)
 
 GPIO.cleanup()
 GPIO.setwarnings(False)
