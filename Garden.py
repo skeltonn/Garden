@@ -1,18 +1,14 @@
 #!/usr/bin/python
 # Test program
-
+import sys
 import PinController
 import os
 import time
 import RPi.GPIO as GPIO
-
 pinController = PinController.PinController()
-
-for x in pinController.relays:
-	pinController.controlPin(x, False)
-	time.sleep(1)
-	pinController.controlPin(x, True)
-
+pinController.controlPin(pinController.relays[int(sys.argv[1])], False)
+time.sleep(int(sys.argv[2]))
+pinController.controlPin(pinController.relays[int(sys.argv[1])], True)
 
 GPIO.cleanup()
 GPIO.setwarnings(False)
