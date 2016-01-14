@@ -1,19 +1,16 @@
 import time
+from MoistureSensor import MoistureSensor
 
-range = Range(0,4)
+myrange = [0]
 
-for x in range:
+MoistureSensor.setup([5])
 
-	print "Repetition " + x
-	sensor = MoistureSensor(x)
+for x in range(0,100):
 
-for x in Range(0,100):
-
-	print "Repetition " + x
+	print "Repetition " + str(x)
 	
-	for x in range:
+	for x in myrange:
 	
-		print "Sensor " + x ": " + MoistureSensor.sensors[x].getMoisture()
+		print "Sensor " + str(x) + ": " + str(MoistureSensor.sensors[x].getMoisture())
 	
-	time.wait(1000)
-	
+	time.sleep(2)

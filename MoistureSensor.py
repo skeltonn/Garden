@@ -1,21 +1,26 @@
 import mcp3008
 
-class MoistureSensor:
+class MoistureSensor():
 
-    pins = [0,0,0,0]
+    pins = []
     
     sensors = []
 
-    def setup(self, pinNumbers):
+    @staticmethod
+    def setup(pinNumbers):
 
-        pins = pinNumbers
-        
+        MoistureSensor.pins = pinNumbers
+        for x in range(0, len(pinNumbers)):
+	   
+	   sensor = MoistureSensor(x)
+	
         
     def __init__(self, number):
-    
-    	sensors[number] = self
-        
+
+        self.pin = MoistureSensor.pins[number]
+    	MoistureSensor.sensors.append(self)
+
 	
-	def getMoisture(self):
+    def getMoisture(self):
 	
-		return readacd(255)
+	return mcp3008.readadc(self.pin)
