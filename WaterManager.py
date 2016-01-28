@@ -4,13 +4,17 @@ from MoistureSensor import MoistureSensor
 myrange = [0]
 
 MoistureSensor.setup([5])
+Sprinkler.setup([21])
 
-for x in range(0,100):
+while true:
 
-	print "Repetition " + str(x)
-	
-	for x in myrange:
-	
-		print "Sensor " + str(x) + ": " + str(MoistureSensor.sensors[x].getMoisture())
-	
-	time.sleep(2)
+        for x in myrange:
+
+                if MoistureSensor.sensors[x].getMoisture() > 200:
+
+                        Sprinkler.sprinklers[x].changeState(false)
+
+                else:
+                        Sprinkler.sprinklers[x].changeState(true)
+
+        time.sleep(5)
