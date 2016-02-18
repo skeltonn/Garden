@@ -1,20 +1,23 @@
 import time
 from MoistureSensor import MoistureSensor
+from Sprinkler import Sprinkler
 
-myrange = [0]
+myrange = [0,1,2,3,4,5,6]
 
 MoistureSensor.setup([5])
-Sprinkler.setup([21])
+Sprinkler.setup([18,23,24,25,16,21,20])
 
-while true:
+while True:
 
         for x in myrange:
 
-                if MoistureSensor.sensors[x].getMoisture() > 200:
+                
 
-                        Sprinkler.sprinklers[x].changeState(false)
+                if MoistureSensor.sensors[0].getMoisture() > 40:
+                        Sprinkler.sprinklers[x].changeState(False)
 
                 else:
-                        Sprinkler.sprinklers[x].changeState(true)
+                        Sprinkler.sprinklers[x].changeState(True)
 
-        time.sleep(5)
+        print(MoistureSensor.sensors[0].getMoisture())
+        time.sleep(2)

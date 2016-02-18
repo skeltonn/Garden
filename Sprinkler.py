@@ -23,13 +23,13 @@ class Sprinkler:
 
         self.pin = Sprinkler.pins[number]
         
-        GPIO.setup(x, GPIO.OUT)
-	GPIO.output(x, True)
+        GPIO.setup(self.pin, GPIO.OUT)
+	GPIO.output(self.pin, True)
 	
         Sprinkler.sprinklers.append(self)
         
 
-    def changeState(boolean):
+    def changeState(self, boolean):
 
         GPIO.output(self.pin, boolean)
         
