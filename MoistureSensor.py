@@ -22,5 +22,4 @@ class MoistureSensor():
 
 	
     def getMoisture(self):
-	
-	return mcp3008.readadc(self.pin)
+		return mcp3008.readadc(self.pin)
