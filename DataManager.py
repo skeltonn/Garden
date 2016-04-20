@@ -8,9 +8,9 @@ class DataManager:
 	def getLatestMoisture():
 		
 		connection = pymysql.connect(host='localhost',
-                             user='user',
-                             password='passwd',
-                             db='db',
+                             user='pi',
+                             password='GardenPi',
+                             db='Garden',
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
                              
