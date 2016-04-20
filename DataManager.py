@@ -57,13 +57,13 @@ class DataManager:
 		try:
 	    		with connection.cursor() as cursor:
         			# Read a single record
-        			sql = "SELECT water1, water2, water3, water4 FROM observed where record BETWEEN (NOW() - INTERVAL 2 DAY) AND NOW() order by record desc"
+        			sql = "SELECT record, water1, water2, water3, water4 FROM observed where record BETWEEN (NOW() - INTERVAL 2 DAY) AND NOW() order by record desc"
         			cursor.execute(sql)
         			result = cursor.fetchall()
         			for row in result:
-        				if row[0] > 0 or row[1] > 0 or row[2] > 0 or row[3] > 0 or row[4] > 0;
+        				if row[1] > 0 or row[2] > 0 or row[3] > 0 or row[4] > 0 or row[5] > 0;
         					return row
-        			return [0,0,0,0]
+        			return ["2000-01-01 01:00:00", 0, 0, 0, 0]
         		
 		finally:
     			connection.close()
