@@ -27,3 +27,5 @@ while True:
 '''
 
 DataManager.getLatestMoisture()
+DataManager.getLatestRainfall()
+DataManager.getPredictedRainfall()
