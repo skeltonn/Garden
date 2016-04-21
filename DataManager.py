@@ -53,7 +53,7 @@ class DataManager:
 		finally:
     			connection.close()
     			for row in result:
-        			if row[1] > 0 or row[2] > 0 or row[3] > 0 or row[4] > 0:
+        			if row["water1"] > 0 or row["water2"] > 0 or row["water3"] > 0 or row["water4"] > 0:
         				return row
         		return ["2000-01-01 01:00:00", 0, 0, 0, 0]
     			
