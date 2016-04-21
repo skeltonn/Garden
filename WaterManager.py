@@ -1,4 +1,5 @@
 import time
+import pymysql
 from MoistureSensor import MoistureSensor
 from Sprinkler import Sprinkler
 from DataManager import DataManager
@@ -33,4 +34,4 @@ connection = pymysql.connect(host='localhost',
         charset='utf8mb4',
         cursorclass=pymysql.cursors.DictCursor)
 
-DataManager.getLatestMoisture(connection)
+print(DataManager.getLatestMoisture(connection))
