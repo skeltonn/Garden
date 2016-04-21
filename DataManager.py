@@ -70,7 +70,7 @@ class DataManager:
         		
 		finally:
     			connection.close()
-    			return [result["gpm"], result["gpm"], result["gpm"], result["gpm"]]
+    			return [result[0]["gpm"], result[1]["gpm"], result[2]["gpm"], result[3]["gpm"]]
     			
 	@staticmethod
 	def getTargetCapacity(connection):
@@ -83,4 +83,4 @@ class DataManager:
         	
 		finally:
     			connection.close()
-    			return [result["capacity"], result["capacity"], result["capacity"], result["capacity"]]
+    			return [result[0]["capacity"], result[1]["capacity"], result[2]["capacity"], result[3]["capacity"]]
