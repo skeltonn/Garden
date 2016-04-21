@@ -26,6 +26,11 @@ while True:
         time.sleep(2)
 '''
 
-DataManager.getLatestMoisture()
-DataManager.getLatestRainfall()
-DataManager.getPredictedRainfall()
+connection = pymysql.connect(host='localhost',
+    	user='root',
+    	password='',
+        db='Garden',
+        charset='utf8mb4',
+        cursorclass=pymysql.cursors.DictCursor)
+
+DataManager.getLatestMoisture(connection)

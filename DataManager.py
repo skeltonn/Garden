@@ -12,18 +12,15 @@ class DataManager:
    	result = ""
 	
 	@staticmethod
-	def getLatestMoisture():
+	def getLatestMoisture(connection):
 	
 		try:
-			global connection
-		    	with connection.cursor() as cursor:
-	    			global result
-    				sql = "SELECT zone1, zone2, zone3, zone4 FROM observed where record BETWEEN (NOW() - INTERVAL 1 DAY) AND NOW() order by record desc limit 1"
-    				cursor.execute(sql)
-       				result = cursor.fetchone()
+    			sql = "SELECT zone1, zone2, zone3, zone4 FROM observed where record BETWEEN (NOW() - INTERVAL 1 DAY) AND NOW() order by record desc limit 1"
+    			cursor = connection.cursor()
+    			cursor.execute(sql)
+       			result = cursor.fetchone()
         			
 		finally:
-			global result, connection
     			connection.close()
     			return [result["zone1"], result["zone2"], result["zone3"], result["zone4"]]
 
