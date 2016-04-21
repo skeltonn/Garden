@@ -1,4 +1,5 @@
 import pymysql
+import time
 
 class DataManager:
 
@@ -65,20 +66,21 @@ class DataManager:
         		cursor = connection.cursor()
         		cursor.execute(sql)
     			result = cursor.fetchall()
+    			time.sleep(.1)
         		
 		finally:
     			connection.close()
-    			return [result[0], result[1], result[2], result[3]]
+    			return [result["gpm"], result["gpm"], result["gpm"], result["gpm"]]
     			
 	@staticmethod
 	def getTargetCapacity(connection):
 	
 		try:
-        		sql = "SELECT capcity FROM calibration"
+        		sql = "SELECT capacity FROM calibration"
         		cursor = connection.cursor()
         		cursor.execute(sql)
         		result = cursor.fetchall()
         	
 		finally:
     			connection.close()
-    			return result
+    			return [result["capacity"], result["capacity"], result["capacity"], result["capacity"]]
