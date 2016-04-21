@@ -27,11 +27,24 @@ while True:
         time.sleep(2)
 '''
 
-connection = pymysql.connect(host='localhost',
+for x in range(0, 5):
+	
+	connection = pymysql.connect(host='localhost',
     	user='root',
     	password='',
         db='Garden',
         charset='utf8mb4',
         cursorclass=pymysql.cursors.DictCursor)
-
-print(DataManager.getLatestMoisture(connection))
+	
+	if x == 0:
+		print(DataManager.getLatestMoisture(connection))
+	elif x == 1:
+		print(DataManager.getLatestRainfall(connection))
+	elif x == 2:
+		print(DataManager.getPredictedRainfall(connection))
+	elif x == 3:
+		print(DataManager.getPreviousWateringTimes(connection))
+	elif x == 4:
+		print(DataManager.getSprinklerWaterRate())
+	else:
+		print(DataManager.getTargetCapacity())
