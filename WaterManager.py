@@ -26,25 +26,24 @@ while True:
         print(MoistureSensor.sensors[0].getMoisture())
         time.sleep(2)
 '''
-
-for x in range(0, 5):
-	
-	connection = pymysql.connect(host='localhost',
+connection = pymysql.connect(host='localhost',
     	user='root',
     	password='',
         db='Garden',
         charset='utf8mb4',
         cursorclass=pymysql.cursors.DictCursor)
+        
+for x in range(0, 5):
 	
 	if x == 0:
-		print(DataManager.getLatestMoisture(connection))
+		print(DataManager.getLatestMoisture(a = connection))
 	elif x == 1:
-		print(DataManager.getLatestRainfall(connection))
+		print(DataManager.getLatestRainfall(a = connection))
 	elif x == 2:
-		print(DataManager.getPredictedRainfall(connection))
+		print(DataManager.getPredictedRainfall(a = connection))
 	elif x == 3:
-		print(DataManager.getPreviousWateringTimes(connection))
+		print(DataManager.getPreviousWateringTimes(a = connection))
 	elif x == 4:
-		print(DataManager.getSprinklerWaterRate(connection))
+		print(DataManager.getSprinklerWaterRate(a = connection))
 	else:
-		print(DataManager.getTargetCapacity(connection))
+		print(DataManager.getTargetCapacity(a = connection))
