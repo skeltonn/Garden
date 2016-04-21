@@ -37,14 +37,14 @@ for x in range(0, 5):
         cursorclass=pymysql.cursors.DictCursor)
 	
 	if x == 0:
-		print(DataManager.getLatestMoisture(connection))
+		print("Latest Moisture Reading: " + DataManager.getLatestMoisture(connection))
 	elif x == 1:
-		print(DataManager.getLatestRainfall(connection))
+		print("Latest Rainfall Calculaton: " + DataManager.getLatestRainfall(connection))
 	elif x == 2:
-		print(DataManager.getPredictedRainfall(connection))
+		print("Rainfall Prediction (Chance, Value): " + DataManager.getPredictedRainfall(connection))
 	elif x == 3:
-		print(DataManager.getPreviousWateringTimes(connection))
+		print("Recent Watering Times: " + DataManager.getPreviousWateringTimes(connection))
 	elif x == 4:
-		print(DataManager.getSprinklerWaterRate(connection))
+		print("Sprinkler Watering Rates (Gall per Min): " + DataManager.getSprinklerWaterRate(connection))
 	else:
-		print(DataManager.getTargetCapacity(connection))
+		print("Target Sector Capacities: " + DataManager.getTargetCapacity(connection))
