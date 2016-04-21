@@ -1,5 +1,4 @@
 import pymysql
-import time
 
 class DataManager:
 
@@ -55,7 +54,7 @@ class DataManager:
     			connection.close()
     			for row in result:
         			if row["water1"] > 0 or row["water2"] > 0 or row["water3"] > 0 or row["water4"] > 0:
-        				return row
+        				return [row["record"], row["water1"], row["water2"], row["water3"], row["water4"]]
         		return ["2000-01-01 01:00:00", 0, 0, 0, 0]
     			
 	@staticmethod
@@ -66,7 +65,6 @@ class DataManager:
         		cursor = connection.cursor()
         		cursor.execute(sql)
     			result = cursor.fetchall()
-    			time.sleep(.1)
         		
 		finally:
     			connection.close()
