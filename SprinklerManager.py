@@ -18,7 +18,7 @@ class SprinklerManager:
 		for x in range(0, 4):
 			print gallons[x]
 			print sprinklerWaterRates[x]
-			minutes.insert(x, gallons[x] / sprinklerWaterRates[x])
+			minutes.insert(x, int((gallons[x] / sprinklerWaterRates[x]) + 1))
 			
 		return minutes
 		
