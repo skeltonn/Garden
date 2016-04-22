@@ -44,7 +44,7 @@ for x in range(0, 5):
 	elif x == 2:
 		print(DataManager.getPredictedRainfall(connection))
 	elif x == 3:
-		print(DataManager.getPreviousWateringTimes(connection))
+		print(DataManager.getPreviousWateringAmounts(connection))
 	elif x == 4:
 		print(DataManager.getSprinklerWaterRate(connection))
 	else:

@@ -1,3 +1,4 @@
+from DataManager import DataManager
 
 class WateringCalculator:
 	
