@@ -39,6 +39,5 @@ class WateringCalculator:
 				result.insert(x, 0)
 			else:
 				result.insert(x, 1)
-			print(previousRain * 560) + recentWateringGallons[x + 1])
 		
 		return result
