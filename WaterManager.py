@@ -46,7 +46,7 @@ for x in range(0, 5):
 	elif x == 3:
 		print(DataManager.getPreviousWateringAmounts(connection))
 	elif x == 4:
-		print(DataManager.getSprinklerWaterRate(connection))
+		print(DataManager.getSprinklerWaterRates(connection))
 	else:
 		print(DataManager.getTargetCapacity(connection))
 		

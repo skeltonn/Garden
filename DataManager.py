@@ -59,7 +59,7 @@ class DataManager:
         		return [datetime.min, 0, 0, 0, 0]
     			
 	@staticmethod
-	def getSprinklerWaterRate(connection):
+	def getSprinklerWaterRates(connection):
 	
 		try:
         		sql = "SELECT gpm FROM calibration"
