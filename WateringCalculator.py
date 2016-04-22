@@ -26,7 +26,7 @@ class WateringCalculator:
         		db='Garden',
         		charset='utf8mb4',
     			cursorclass=pymysql.cursors.DictCursor))
-    	predictedRain = DataManager.getPredictedRainfall(pymysql.connect(host='localhost',
+	    	predictedRain = DataManager.getPredictedRainfall(pymysql.connect(host='localhost',
     			user='root',
     			password='',
         		db='Garden',
