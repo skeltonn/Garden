@@ -7,10 +7,30 @@ class WateringCalculator:
 		
 		result = []
 		
-		recentWateringGallons = DataManager.getPreviousWateringAmounts()
-		sectorTargets = DataManager.getTargetCapacity()
-		previousRain = DataManager.getLatestRain()
-		currentMoistures = DataManager.getLatestMoisture()
+		recentWateringGallons = DataManager.getPreviousWateringAmounts(pymysql.connect(host='localhost',
+    		user='root',
+    		password='',
+        	db='Garden',
+        	charset='utf8mb4',
+        	cursorclass=pymysql.cursors.DictCursor))
+		sectorTargets = DataManager.getTargetCapacity(pymysql.connect(host='localhost',
+    		user='root',
+    		password='',
+        	db='Garden',
+        	charset='utf8mb4',
+        	cursorclass=pymysql.cursors.DictCursor))
+		previousRain = DataManager.getLatestRain(pymysql.connect(host='localhost',
+    		user='root',
+    		password='',
+        	db='Garden',
+        	charset='utf8mb4',
+    	    cursorclass=pymysql.cursors.DictCursor))
+		currentMoistures = DataManager.getLatestMoisture(pymysql.connect(host='localhost',
+    		user='root',
+    		password='',
+        	db='Garden',
+        	charset='utf8mb4',
+        	cursorclass=pymysql.cursors.DictCursor))
 		
 		for x in range(0, 4):
 			if currentMoistures[x] > sectorTargets[x]:
