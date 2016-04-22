@@ -3,6 +3,8 @@ import thread
 from DataManager import DataManager
 
 class SprinklerManager:
+
+	threads = 0
 	
 	@staticmethod
 	def determineMinutes(gallons):
@@ -29,6 +31,8 @@ class SprinklerManager:
 		
 	@staticmethod
 	def waterSector(sector, minutes):
+		threads++
 		print("Turning on sprinkler " + str(sector) + " for " + str(minutes) + " minutes.")
 		time.sleep(minutes)
 		print("Turning off sprinkler " + str(sector))
+		threads--
