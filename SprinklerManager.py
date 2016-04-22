@@ -1,4 +1,5 @@
 import pymysql
+import thread
 from DataManager import DataManager
 
 class SprinklerManager:
@@ -22,3 +23,12 @@ class SprinklerManager:
 			
 		return minutes
 		
+	@staticmethod
+	def setup():
+		Sprinkler.setup([18,23,24,25,16,21,20])
+		
+	@staticmethod
+	def waterSector(sector, minutes):
+		print("Turning on sprinkler " + str(sector) + " for " + str(minutes) + " minutes.")
+		time.sleep(minutes)
+		print("Turning off sprinkler " + str(sector))
