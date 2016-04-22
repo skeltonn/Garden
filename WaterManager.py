@@ -3,6 +3,7 @@ import pymysql
 from MoistureSensor import MoistureSensor
 from Sprinkler import Sprinkler
 from DataManager import DataManager
+from WateringCalculator import WateringCalculator
 
 myrange = [0,1,2,3,4,5,6]
 
@@ -48,3 +49,5 @@ for x in range(0, 5):
 		print(DataManager.getSprinklerWaterRate(connection))
 	else:
 		print(DataManager.getTargetCapacity(connection))
+		
+print(WateringCalculator.calculateNeededGallons())

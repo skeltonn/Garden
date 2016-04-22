@@ -43,7 +43,7 @@ class DataManager:
     			return [result["pchance"], result["prain"]]
     			
 	@staticmethod
-	def getPreviousWateringTimes(connection):
+	def getPreviousWateringAmounts(connection):
 	
 		try:
         		sql = "SELECT record, water1, water2, water3, water4 FROM observed where record BETWEEN (NOW() - INTERVAL 2 DAY) AND NOW() order by record desc"
