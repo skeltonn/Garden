@@ -4,6 +4,7 @@ from MoistureSensor import MoistureSensor
 from Sprinkler import Sprinkler
 from DataManager import DataManager
 from WateringCalculator import WateringCalculator
+from SprinklerManager import SprinklerManager
 
 myrange = [0,1,2,3,4,5,6]
 
@@ -50,4 +51,7 @@ for x in range(0, 5):
 	else:
 		print(DataManager.getTargetCapacity(connection))
 		
-print(WateringCalculator.calculateNeededGallons())
+gallons = WateringCalculator.calculateNeededGallons()
+minutes = SprinklerManager.determineMinutes(gallons)
+print("Gallons: " + str(gallons))
+print("Minutes: " + str(minutes))
