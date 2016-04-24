@@ -58,7 +58,9 @@ print("Gallons: " + str(gallons))
 print("Minutes: " + str(minutes))
 
 for x in range(0, 4):
-	thread.start_new_thread(SprinklerManager.waterSector, (x, minutes[x] / 10))
+	
+	if minutes[x] > 1:
+		thread.start_new_thread(SprinklerManager.waterSector, (x, minutes[x]))
 	
 while SprinklerManager > 0:
 	pass

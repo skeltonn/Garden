@@ -32,8 +32,8 @@ class SprinklerManager:
 		
 	@staticmethod
 	def waterSector(sector, minutes):
-		threads++
+		SprinklerManager.threads += 1
 		print("Turning on sprinkler " + str(sector) + " for " + str(minutes) + " minutes.")
-		time.sleep(minutes)
+		time.sleep(minutes * 60)
 		print("Turning off sprinkler " + str(sector))
-		threads--
+		SprinklerManager.threads -= 1
