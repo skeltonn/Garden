@@ -10,8 +10,6 @@ from SprinklerManager import SprinklerManager
 myrange = [0,1,2,3,4,5,6]
 
 MoistureSensor.setup([5])
-Sprinkler.setup([18,23,24,25,16,21,20])
-
 
 '''
 while True:
@@ -56,6 +54,8 @@ gallons = WateringCalculator.calculateNeededGallons()
 minutes = SprinklerManager.determineMinutes(gallons)
 print("Gallons: " + str(gallons))
 print("Minutes: " + str(minutes))
+SprinklerManager.setup()
+Sprinkler.sprinklers[1].changeState(False)
 
 for x in range(0, 4):
 	

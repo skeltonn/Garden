@@ -1,4 +1,5 @@
 import pymysql
+from decimal import Decimal
 from DataManager import DataManager
 
 class WateringCalculator:
@@ -41,18 +42,18 @@ class WateringCalculator:
 		
 		for x in range(0, 4):
 			
-			currentGallons = (previousRain * 560) + recentWateringGallons[x + 1]
+			currentGallons = (previousRain * 280) + recentWateringGallons[x + 1]
 			
 			if currentMoistures[x] > sectorTargets[x]:
 				result.insert(x, 0)
 			elif currentGallons > 280:
 				result.insert(x, 0)
 			else:
-				if (predictedRain[1] * 560) * predictedRain[0] + currentGallons > 280:
+				if (predictedRain[1] * 280) * (predictedRain[0]/Decimal(100)) + currentGallons > 280:
 					result.insert(x, 0)
 				else:
-					result.insert(x, 280 - ((predictedRain[1] * 560) * predictedRain[0] + currentGallons))
+					result.insert(x, 280 - ((predictedRain[1] * 280) * (predictedRain[0]/Decimal(100)) + currentGallons))
 			
-			print((predictedRain[1] * 560) * predictedRain[0] + currentGallons)
+			print((predictedRain[1] * 280) * (predictedRain[0]/Decimal(100)) + currentGallons)
 			
 		return result

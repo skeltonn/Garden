@@ -2,6 +2,7 @@ import pymysql
 import thread
 import time
 from DataManager import DataManager
+from Sprinkler import Sprinkler
 
 class SprinklerManager:
 
@@ -28,11 +29,12 @@ class SprinklerManager:
 		
 	@staticmethod
 	def setup():
-		Sprinkler.setup([18,23,24,25,16,21,20])
+		Sprinkler.setup([19,13,6,21])
 		
 	@staticmethod
 	def waterSector(sector, minutes):
 		SprinklerManager.threads += 1
+		Sprinkler.sprinklers[sector].changeState(True)
 		print("Turning on sprinkler " + str(sector) + " for " + str(minutes) + " minutes.")
 		time.sleep(minutes * 60)
 		print("Turning off sprinkler " + str(sector))
