@@ -6,7 +6,7 @@ from Sprinkler import Sprinkler
 
 class SprinklerManager:
 
-	threads = 0
+	active = False
 	
 	@staticmethod
 	def determineMinutes(gallons):
@@ -33,9 +33,10 @@ class SprinklerManager:
 		
 	@staticmethod
 	def waterSector(sector, minutes):
-		SprinklerManager.threads += 1
-		Sprinkler.sprinklers[sector].changeState(True)
+		SprinklerManager.active = True
+		Sprinkler.sprinklers[sector].changeState(False)
 		print("Turning on sprinkler " + str(sector) + " for " + str(minutes) + " minutes.")
-		time.sleep(minutes * 60)
+		time.sleep(minutes) # This is actually seconds, *60 for minutes
+		Sprinkler.sprinklers[sector].changeState(True)
 		print("Turning off sprinkler " + str(sector))
-		SprinklerManager.threads -= 1
+		SprinklerManager.active = False

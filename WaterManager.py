@@ -1,3 +1,4 @@
+import sys
 import time
 import pymysql
 import thread
@@ -55,12 +56,14 @@ minutes = SprinklerManager.determineMinutes(gallons)
 print("Gallons: " + str(gallons))
 print("Minutes: " + str(minutes))
 SprinklerManager.setup()
-Sprinkler.sprinklers[1].changeState(False)
 
 for x in range(0, 4):
 	
 	if minutes[x] > 1:
 		thread.start_new_thread(SprinklerManager.waterSector, (x, minutes[x]))
-	
-while SprinklerManager > 0:
-	pass
+		time.sleep(1)
+
+	while(SprinklerManager.active):
+		time.sleep(2);
+
+sys.exit()
