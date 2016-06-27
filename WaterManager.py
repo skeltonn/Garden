@@ -65,5 +65,15 @@ for x in range(0, 4):
 
 	while(SprinklerManager.active):
 		time.sleep(2);
+		
+print("Watering Complete")
+time.sleep(2)
+
+print(DataManager.updateWateringAmounts(pymysql.connect(host='localhost',
+    	user='root',
+    	password='',
+        db='Garden',
+        charset='utf8mb4',
+        cursorclass=pymysql.cursors.DictCursor), gallons))
 
 sys.exit()
