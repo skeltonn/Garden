@@ -84,20 +84,16 @@ class DataManager:
     			connection.close()
     			return [result[0]["capacity"], result[1]["capacity"], result[2]["capacity"], result[3]["capacity"]]
     			
-    @staticmethod
-    def updateWateringAmounts(connection, gallons):
+	@staticmethod
+	def updateWateringAmounts(connection, gallons):
     	
-    	try:
-        		sql = "UPDATE observed SET water1 = water1 + " + str(gallons[0]) + 
-        				", water2 = water2 + " + str(gallons[1]) + 
-        				", water3 = water3 + " + str(gallons[2]) + 
-        				", water4 = water4 + " + str(gallons[3])
-        		
+#    		try:
+        		sql = "UPDATE observed SET water1 = water1 + " + str(gallons[0]) + ", water2 = water2 + " + str(gallons[1]) + ", water3 = water3 + " + str(gallons[2]) + ", water4 = water4 + " + str(gallons[3]) + " order by record desc limit 1"
+        		print(sql)
         		cursor = connection.cursor()
         		cursor.execute(sql)
         	
-		finally:
+#		finally:
     			connection.close()
     			return "Update Success"
-    					
-    
+

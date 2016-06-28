@@ -59,26 +59,5 @@ SprinklerManager.setup()
 
 for x in range(0, 4):
 	
-	if minutes[x] > 1:
+	if minut
 		thread.start_new_thread(SprinklerManager.waterSector, (x, minutes[x]))
-		time.sleep(1)
-
-	while(SprinklerManager.active):
-		time.sleep(2);
-		
-print("Watering Complete")
-time.sleep(2)
-
-
-
-connection = pymysql.connect(host='localhost',
-    	user='root',
-    	password='',
-        db='Garden',
-        charset='utf8mb4',
-        cursorclass=pymysql.cursors.DictCursor,
-	autocommit=True)
-
-print(DataManager.updateWateringAmounts(connection, gallons))
-
-sys.exit()
